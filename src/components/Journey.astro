@@ -1,0 +1,34 @@
+---
+const milestones = [
+  { date: 'October 2019', title: 'First Meeting', desc: 'A coffee shop encounter that changed everything' },
+  { date: 'February 2020', title: 'First Adventure', desc: 'Hiking the Pacific Crest Trail together' },
+  { date: 'November 2021', title: 'The Proposal', desc: 'Lucas asked, Emma said yes!' },
+  { date: 'June 2026', title: 'Our Wedding Day', desc: 'Beginning our forever together' },
+];
+---
+
+<section id="journey" class="py-20 md:py-24 bg-ivory relative">
+  <img src="/img/bottom-right-flower.png" alt="decorative flower" loading="lazy" class="absolute bottom-0 right-0 opacity-50 pointer-events-none" />
+  <div class="max-w-7xl mx-auto px-4 relative">
+    <div class="mb-16 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6">Our Journey Together</h2>
+      <div class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="relative pl-12 space-y-12">
+        <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-sage to-mist"></div>
+        {milestones.map((m) => (
+          <div class="relative">
+            <div class="absolute -left-[3.3rem] top-0 w-3.5 h-3.5 rounded-full bg-botanical border-4 border-ivory shadow-md"></div>
+            <div class="pl-2 md:pl-8">
+              <span class="text-sage text-sm uppercase tracking-wider">{m.date}</span>
+              <h3 class="font-serif text-2xl font-semibold text-botanical mt-3 mb-1">{m.title}</h3>
+              <p class="text-gray-600">{m.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+const faqs = [
+  { q: 'What should I wear?', a: 'Garden Formal / Cocktail Attire. We recommend elegant, garden-inspired colors. Please avoid stiletto heels as the ceremony is outdoors on grass.' },
+  { q: 'Are children welcome?', a: 'We kindly request an adults-only celebration. Children who are part of the wedding party are welcome.' },
+  { q: 'Can I bring a plus-one?', a: 'Due to venue capacity, we can only accommodate guests formally invited. Please check your invitation for details.' },
+  { q: 'Is parking available?', a: 'Yes! Complimentary valet parking is available at both the ceremony and reception venues. We also encourage carpooling or ride-sharing.' },
+  { q: "What's the weather like in June?", a: 'Portland in June is typically beautiful with temperatures around 70–75°F. We recommend bringing a light jacket for the evening.' },
+  { q: 'Will there be an open bar?', a: 'Yes! We\'ll have a full open bar featuring signature cocktails "The Blushing Bride" and "Lucky Lucas," along with premium wines, craft beers, and non-alcoholic options.' },
+  { q: 'Where should I stay?', a: 'We\'ve reserved room blocks at The Grand Hotel Portland and The Garden Inn, both within 10 minutes of our venues. Use code: EMMALUCAS2026 for special rates.' },
+  { q: 'Can I take photos during the ceremony?', a: 'We\'re having an unplugged ceremony — please keep phones and cameras away during this time. Feel free to capture moments during the reception!' },
+];
+---
+
+<section id="faq" class="py-20 md:py-24 bg-mist relative">
+  <img src="/img/bottom-right-flower.png" alt="" loading="lazy" class="absolute bottom-0 right-0 opacity-50 pointer-events-none" />
+
+  <div class="max-w-7xl mx-auto px-4 relative">
+    <div class="mb-16 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6">Frequently Asked Questions</h2>
+      <div class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4" x-data="{ open: null }">
+      {faqs.map((faq, i) => (
+        <div class="bg-white shadow-lg border border-mist overflow-hidden">
+          <button
+            x-on:click={`open = open === ${i} ? null : ${i}`}
+            class="w-full flex justify-between items-center p-6 text-left"
+          >
+            <span class="font-serif text-lg font-semibold text-botanical">{faq.q}</span>
+            <svg
+              class="w-5 h-5 text-sage transition-transform duration-300 shrink-0 ml-4"
+              x-bind:class={`open === ${i} ? 'rotate-180' : ''`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div x-show={`open === ${i}`} x-transition class="px-6 pb-6">
+            <p class="text-gray-600 leading-relaxed">{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

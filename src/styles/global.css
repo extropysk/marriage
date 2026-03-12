@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* Custom Theme */
+@theme {
+  --color-ivory: #FAF8F5;
+  --color-botanical: #2C5530;
+  --color-sage: #7C9A6E;
+  --color-mist: #E8E4DF;
+  --color-taupe: #B8AFA6;
+  --color-dark: #1a1a1a;
+
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out both;
+}
+
+/* Navigation */
+.menu-item {
+  @apply px-5 py-2 text-sm uppercase tracking-[0.15em] text-botanical font-medium relative transition-colors duration-300;
+}
+
+.menu-item::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-sage transition-all duration-300;
+  transform: translateX(-50%);
+}
+
+.menu-item:hover::after,
+.menu-item.active::after {
+  @apply w-full;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  @apply text-sage;
+}
+
+/* GLightbox overrides */
+.glightbox-clean .gslide-description {
+  background: transparent !important;
+}
+
+.glightbox-clean .gclose,
+.glightbox-clean .gnext,
+.glightbox-clean .gprev {
+  background: rgba(44, 85, 48, 0.8) !important;
+}
+
+/* Alpine cloak */
+[x-cloak] {
+  display: none !important;
+}
+
+/* Scrollbar */
+html {
+  scroll-behavior: smooth;
+}

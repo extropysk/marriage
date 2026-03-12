@@ -1,0 +1,33 @@
+---
+const stores = [
+  { name: 'Amazon', logo: '/img/amazon.png' },
+  { name: 'Zola', logo: '/img/zola.png' },
+  { name: 'Crate & Barrel', logo: '/img/create-barrel.png' },
+  { name: 'Target', logo: '/img/target.png' },
+];
+---
+
+<section id="registry" class="py-20 md:py-24 bg-mist">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="mb-16 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6">Gift Registry</h2>
+      <div class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"></div>
+      <p class="text-gray-600 mt-6 max-w-2xl mx-auto">
+        Your presence at our wedding is the greatest gift of all! However, if you wish to honor us with a gift, we've registered at the following stores.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mx-auto">
+      {stores.map((store) => (
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center justify-center bg-white p-8 shadow-lg border border-mist text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
+        >
+          <img src={store.logo} alt={store.name} loading="lazy" class="max-h-12 object-contain group-hover:scale-110 transition-transform" />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

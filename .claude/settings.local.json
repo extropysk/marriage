@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:marriage.madethemes.com)",
+      "Bash(curl -s https://marriage.madethemes.com/ | head -200)"
+    ]
+  }
+}

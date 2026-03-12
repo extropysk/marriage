@@ -1,0 +1,180 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebrating our special day filled with love, joy, and unforgettable moments." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-sans bg-ivory text-gray-800 leading-relaxed pt-20">
+    <slot />
+
+    <script>
+      import Alpine from 'alpinejs';
+      // @ts-ignore
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script>
+
+    <script>
+      import GLightbox from 'glightbox';
+      import 'glightbox/dist/css/glightbox.min.css';
+      GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+      });
+    </script>
+
+    <script>
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = anchor.getAttribute('href');
+          if (!href) return;
+          const target = document.querySelector(href);
+          if (target) {
+            const el = target as HTMLElement;
+            const offset = el.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Active nav link highlighter
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach((section) => {
+          const el = section as HTMLElement;
+          const sectionTop = el.offsetTop - 100;
+          if (window.pageYOffset >= sectionTop) {
+            current = el.getAttribute('id') || '';
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Falling flowers animation
+      class FallingFlowers {
+        flowers: string[];
+        leafs: string[];
+        container: HTMLDivElement;
+
+        constructor(flowers: string[], leafs: string[]) {
+          this.flowers = flowers;
+          this.leafs = leafs;
+          this.container = document.createElement('div');
+          this.init();
+        }
+
+        init() {
+          Object.assign(this.container.style, {
+            position: 'fixed',
+            inset: '0',
+            pointerEvents: 'none',
+            zIndex: '9999',
+            overflow: 'hidden',
+          });
+          document.body.appendChild(this.container);
+          this.createItem();
+          setInterval(() => this.createItem(), 3000);
+        }
+
+        createItem() {
+          const isFlower = Math.random() > 0.5;
+          const items = isFlower ? this.flowers : this.leafs;
+          const src = items[Math.floor(Math.random() * items.length)];
+          const emojis = isFlower
+            ? ['\u{1F338}', '\u{1F33A}', '\u{1F337}', '\u{1F490}', '\u{1F33B}', '\u{1F339}']
+            : ['\u{1F343}', '\u{1F342}', '\u{1F341}', '\u{1F33F}'];
+
+          const img = document.createElement('img');
+          img.src = src;
+          img.style.position = 'absolute';
+          img.style.top = '-60px';
+          img.style.left = Math.random() * 90 + '%';
+          img.style.width = 30 + Math.random() * 30 + 'px';
+          img.style.opacity = '0.95';
+          img.style.pointerEvents = 'none';
+
+          img.onerror = () => {
+            const span = document.createElement('span');
+            span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            span.style.cssText = img.style.cssText;
+            span.style.fontSize = '24px';
+            this.container.appendChild(span);
+            this.animate(span);
+            img.remove();
+          };
+
+          img.onload = () => {
+            this.container.appendChild(img);
+            this.animate(img);
+          };
+        }
+
+        animate(el: HTMLElement) {
+          const start = performance.now();
+          const duration = 8000 + Math.random() * 7000;
+          const endY = window.innerHeight + 100;
+          const swayAmount = 30 + Math.random() * 50;
+          const swayFreq = 2 + Math.random() * 3;
+          const maxRotation = Math.random() * 720;
+
+          const step = (now: number) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+
+            const y = progress * endY;
+            const swayX = Math.sin(progress * Math.PI * swayFreq) * swayAmount;
+            const rotation = progress * maxRotation;
+            const scale = 0.6 + Math.sin(progress * Math.PI) * 0.4;
+            const opacity = 0.95 * (1 - progress);
+
+            el.style.transform = `translateY(${y}px) translateX(${swayX}px) rotate(${rotation}deg) scale(${scale})`;
+            el.style.opacity = String(opacity);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              el.remove();
+            }
+          };
+
+          requestAnimationFrame(step);
+        }
+      }
+
+      new FallingFlowers(
+        ['/img/flower1.png', '/img/flower2.png', '/img/flower3.png'],
+        ['/img/leaf1.png', '/img/leaf2.png', '/img/leaf3.png', '/img/leaf4.png']
+      );
+    </script>
+  </body>
+</html>

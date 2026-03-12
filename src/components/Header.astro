@@ -1,0 +1,55 @@
+---
+const navItems = [
+  { href: '#home', label: 'Home' },
+  { href: '#story', label: 'Our Story' },
+  { href: '#details', label: 'Details' },
+  { href: '#schedule', label: 'Schedule' },
+  { href: '#gallery', label: 'Gallery' },
+  { href: '#rsvp', label: 'RSVP' },
+];
+---
+
+<header class="fixed w-full top-0 z-50 bg-ivory/95 backdrop-blur-sm shadow-sm" x-data="{ open: false }">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center h-20">
+      <a href="#home" aria-label="Home">
+        <div class="font-serif text-4xl font-bold text-botanical tracking-wide flex items-center gap-2">
+          <span>E</span>
+          <img src="/img/ring.png" alt="Wedding Ring Logo" width="48" height="48" loading="lazy" />
+          <span>L</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex lg:items-center desktop-navbar">
+        {navItems.map((item) => (
+          <a href={item.href} class="menu-item nav-link">{item.label}</a>
+        ))}
+      </nav>
+
+      <button @click="open = !open" class="lg:hidden text-botanical" aria-label="Toggle menu">
+        <span x-show="!open">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </span>
+        <span x-show="open" x-cloak>
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <nav x-show="open" x-transition class="lg:hidden pb-6 space-y-4 mobile-navbar">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          x-on:click="open = false"
+          class="block text-sm uppercase tracking-widest text-botanical hover:text-yellow-600 transition-colors nav-link"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
