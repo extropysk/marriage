@@ -1,64 +1,143 @@
 ---
+import { useTranslations } from "../i18n";
+const t = useTranslations();
 ---
 
 <section id="rsvp" class="py-20 md:py-24 bg-ivory relative">
-  <img src="/img/bottom-left-flower.png" alt="" loading="lazy" class="absolute bottom-0 left-0 opacity-50 pointer-events-none" />
-  <img src="/img/top-right-flower.png" alt="" loading="lazy" class="absolute top-0 right-0 opacity-50 pointer-events-none" />
+  <img
+    src="/img/bottom-left-flower.png"
+    alt=""
+    loading="lazy"
+    class="absolute bottom-0 left-0 opacity-50 pointer-events-none"
+  />
+  <img
+    src="/img/top-right-flower.png"
+    alt=""
+    loading="lazy"
+    class="absolute top-0 right-0 opacity-50 pointer-events-none"
+  />
 
   <div class="max-w-7xl mx-auto px-4 relative">
     <div class="mb-16 text-center">
-      <h2 class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6">RSVP</h2>
-      <div class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"></div>
-      <p class="text-gray-600 mt-6 max-w-2xl mx-auto">Kindly respond by May 1st, 2026. We can't wait to celebrate with you!</p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6"
+      >
+        {t("rsvp.heading")}
+      </h2>
+      <div
+        class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"
+      >
+      </div>
+      <p class="text-gray-600 mt-6 max-w-2xl mx-auto">{t("rsvp.subtitle")}</p>
     </div>
 
-    <div class="max-w-2xl mx-auto bg-white p-10 shadow-lg border border-mist" x-data="{ attending: '' }">
+    <div
+      class="max-w-2xl mx-auto bg-white p-10 shadow-lg border border-mist"
+      x-data="{ attending: '' }"
+    >
       <form class="space-y-6">
         <div>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Full Name</label>
-          <input type="text" required class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10" placeholder="Enter your full name" />
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.name.label")}</label
+          >
+          <input
+            type="text"
+            required
+            class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10"
+            placeholder={t("rsvp.name.placeholder")}
+          />
         </div>
         <div>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Email Address</label>
-          <input type="email" required class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10" placeholder="Enter your email" />
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.email.label")}</label
+          >
+          <input
+            type="email"
+            required
+            class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10"
+            placeholder={t("rsvp.email.placeholder")}
+          />
         </div>
         <div>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Number of Guests</label>
-          <input type="number" min="1" required class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10" placeholder="Number of guests" />
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.guests.label")}</label
+          >
+          <input
+            type="number"
+            min="1"
+            required
+            class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10"
+            placeholder={t("rsvp.guests.placeholder")}
+          />
         </div>
         <div>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Will you be attending?</label>
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.attending.label")}</label
+          >
           <div class="flex gap-6 mt-3">
             <label class="flex items-center gap-3 cursor-pointer">
-              <input type="radio" name="attending" value="yes" x-model="attending" class="w-5 h-5 text-botanical accent-botanical" />
-              <span class="text-gray-700">Joyfully accepts</span>
+              <input
+                type="radio"
+                name="attending"
+                value="yes"
+                x-model="attending"
+                class="w-5 h-5 text-botanical accent-botanical"
+              />
+              <span class="text-gray-700">{t("rsvp.attending.yes")}</span>
             </label>
             <label class="flex items-center gap-3 cursor-pointer">
-              <input type="radio" name="attending" value="no" x-model="attending" class="w-5 h-5 text-botanical accent-botanical" />
-              <span class="text-gray-700">Regretfully declines</span>
+              <input
+                type="radio"
+                name="attending"
+                value="no"
+                x-model="attending"
+                class="w-5 h-5 text-botanical accent-botanical"
+              />
+              <span class="text-gray-700">{t("rsvp.attending.no")}</span>
             </label>
           </div>
         </div>
         <div x-show="attending === 'yes'" x-transition>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Meal Selection</label>
-          <select class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10">
-            <option value="">Select your meal preference</option>
-            <option>Herb-Crusted Beef Tenderloin</option>
-            <option>Pan-Seared Salmon</option>
-            <option>Roasted Chicken Breast</option>
-            <option>Vegan Mediterranean Bowl</option>
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.meal.label")}</label
+          >
+          <select
+            class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10"
+          >
+            <option value="">{t("rsvp.meal.placeholder")}</option>
+            {t("rsvp.meal.options").map((option) => <option>{option}</option>)}
           </select>
         </div>
         <div x-show="attending === 'yes'" x-transition>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Dietary Restrictions / Allergies</label>
-          <textarea rows="3" class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10" placeholder="Please list any allergies or dietary needs"></textarea>
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.dietary.label")}</label
+          >
+          <textarea
+            rows="3"
+            class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10"
+            placeholder={t("rsvp.dietary.placeholder")}></textarea>
         </div>
         <div>
-          <label class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2">Special Message (Optional)</label>
-          <textarea rows="4" class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10" placeholder="Share your wishes or any special message"></textarea>
+          <label
+            class="block text-sm uppercase tracking-wider text-botanical font-semibold mb-2"
+            >{t("rsvp.message.label")}</label
+          >
+          <textarea
+            rows="4"
+            class="w-full px-6 py-4 border-2 border-mist bg-white transition-all duration-300 focus:outline-none focus:border-sage focus:ring-4 focus:ring-sage/10"
+            placeholder={t("rsvp.message.placeholder")}></textarea>
         </div>
-        <button type="submit" class="w-full bg-botanical text-white px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium hover:bg-botanical/90 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-          Send RSVP
+        <button
+          type="submit"
+          class="w-full bg-botanical text-white px-10 py-4 text-sm uppercase tracking-[0.15em] font-medium hover:bg-botanical/90 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+        >
+          {t("rsvp.submit")}
         </button>
       </form>
     </div>

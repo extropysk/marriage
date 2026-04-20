@@ -1,8 +1,14 @@
 ---
+import { useTranslations } from "../i18n";
+const t = useTranslations();
 ---
 
-<footer class="bg-botanical relative text-white py-16 bg-repeat" style="background-image: url('/img/bg-pattern.png');">
-  <div class="absolute inset-0 bg-linear-to-b from-botanical/95 to-botanical"></div>
+<footer
+  class="bg-botanical relative text-white py-16 bg-repeat"
+  style="background-image: url('/img/bg-pattern.png');"
+>
+  <div class="absolute inset-0 bg-linear-to-b from-botanical/95 to-botanical">
+  </div>
   <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
     <div class="font-serif text-4xl font-bold tracking-wide mb-8">
       <span>E</span>
@@ -11,22 +17,45 @@
     </div>
 
     <nav class="flex flex-wrap justify-center gap-2 mb-8">
-      <a href="#home" class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider">Home</a>
+      <a
+        href="#home"
+        class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider"
+        >{t("footer.nav.home")}</a
+      >
       <span class="text-white/40">&bull;</span>
-      <a href="#story" class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider">Story</a>
+      <a
+        href="#story"
+        class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider"
+        >{t("footer.nav.story")}</a
+      >
       <span class="text-white/40">&bull;</span>
-      <a href="#details" class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider">Details</a>
+      <a
+        href="#details"
+        class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider"
+        >{t("footer.nav.details")}</a
+      >
       <span class="text-white/40">&bull;</span>
-      <a href="#rsvp" class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider">RSVP</a>
+      <a
+        href="#rsvp"
+        class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider"
+        >{t("footer.nav.rsvp")}</a
+      >
     </nav>
 
-    <p class="text-white/70 text-sm mb-4 flex items-center justify-center gap-2">
-      Made with
-      <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 3.562-3.248 8 1.314"/></svg>
-      for our special day
+    <p
+      class="text-white/70 text-sm mb-4 flex items-center justify-center gap-2"
+    >
+      {t("footer.madeWith")}
+      <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 16 16"
+        ><path
+          fill-rule="evenodd"
+          d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 3.562-3.248 8 1.314"
+        ></path></svg
+      >
+      {t("footer.madeFor")}
     </p>
 
-    <p class="text-white/50 text-xs">&copy; 2026 Emma &amp; Lucas. All rights reserved.</p>
+    <p class="text-white/50 text-xs">{t("footer.copyright")}</p>
   </div>
 </footer>
 
@@ -48,6 +77,10 @@
   style="display: none;"
 >
   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 15l7-7 7 7"></path>
   </svg>
 </button>

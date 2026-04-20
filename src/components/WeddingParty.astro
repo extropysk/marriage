@@ -1,45 +1,64 @@
 ---
-const bridesmaids = [
-  { name: 'Sarah Mitchell', role: "Emma's sister and best friend since childhood", img: '/img/bridesmaid1.jpg' },
-  { name: 'Jessica Parker', role: 'College roommate and forever friend', img: '/img/bridesmaid2.jpg' },
-  { name: 'Rachel Thompson', role: 'Work bestie and adventure partner', img: '/img/bridesmaid3.jpg' },
-  { name: 'Amanda Lee', role: 'Yoga instructor, friend and soul sister', img: '/img/bridesmaid4.jpg' },
-];
-
-const groomsmen = [
-  { name: 'Michael Carter', role: "Lucas's brother and childhood hero", img: '/img/groomsmen1.jpg' },
-  { name: 'David Wilson', role: 'College buddy and golf partner', img: '/img/groomsmen2.jpg' },
-  { name: 'James Anderson', role: 'Childhood friend and soccer teammate', img: '/img/groomsmen3.jpg' },
-  { name: 'Robert Martinez', role: 'Work colleague and fishing buddy', img: '/img/groomsmen4.jpg' },
-];
+import { useTranslations } from "../i18n";
+const t = useTranslations();
 ---
 
 <section class="py-20 md:py-24 bg-white relative">
   <div class="max-w-7xl mx-auto px-4">
     <div class="mb-16 text-center">
-      <h2 class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6">Our Loved Ones</h2>
-      <div class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"></div>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-light text-botanical mb-6"
+      >
+        {t("weddingParty.heading")}
+      </h2>
+      <div
+        class="w-40 h-0.5 bg-linear-to-r from-transparent via-sage to-transparent mx-auto mt-8"
+      >
+      </div>
     </div>
 
     <!-- Bridesmaids -->
     <div class="mb-24">
       <div class="grid lg:grid-cols-2 gap-12">
         <div class="lg:order-2 relative overflow-hidden aspect-[4/2.75] group">
-          <img src="/img/bridesmaid.jpg" alt="Bridesmaids" loading="lazy" class="relative px-3 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-          <img src="/img/frame2.png" alt="frame" loading="lazy" class="absolute inset-0 pointer-events-none" />
+          <img
+            src="/img/bridesmaid.jpg"
+            alt="Bridesmaids"
+            loading="lazy"
+            class="relative px-3 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <img
+            src="/img/frame2.png"
+            alt="frame"
+            loading="lazy"
+            class="absolute inset-0 pointer-events-none"
+          />
         </div>
         <div class="lg:order-1">
-          <h3 class="font-serif text-3xl font-semibold text-botanical mb-8 text-center lg:text-left">Bridesmaids</h3>
+          <h3
+            class="font-serif text-3xl font-semibold text-botanical mb-8 text-center lg:text-left"
+          >
+            {t("weddingParty.bridesmaids.title")}
+          </h3>
           <div class="grid md:grid-cols-2 gap-8">
-            {bridesmaids.map((b) => (
-              <div class="text-center p-6 border border-taupe bg-ivory hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
-                  <img src={b.img} alt={b.name} loading="lazy" class="w-full h-full object-cover" />
+            {
+              t("weddingParty.bridesmaids.members").map((b) => (
+                <div class="text-center p-6 border border-taupe bg-ivory hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
+                    <img
+                      src={b.img}
+                      alt={b.name}
+                      loading="lazy"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 class="font-serif text-xl font-semibold text-botanical">
+                    {b.name}
+                  </h4>
+                  <p class="text-gray-600 text-sm mt-2">{b.role}</p>
                 </div>
-                <h4 class="font-serif text-xl font-semibold text-botanical">{b.name}</h4>
-                <p class="text-gray-600 text-sm mt-2">{b.role}</p>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
       </div>
@@ -49,21 +68,44 @@ const groomsmen = [
     <div>
       <div class="grid lg:grid-cols-2 gap-12">
         <div class="relative overflow-hidden aspect-[4/2.75] group">
-          <img src="/img/groomsmen.jpg" alt="Groomsmen" loading="lazy" class="relative px-3 w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-          <img src="/img/frame2.png" alt="frame" loading="lazy" class="absolute inset-0 pointer-events-none" />
+          <img
+            src="/img/groomsmen.jpg"
+            alt="Groomsmen"
+            loading="lazy"
+            class="relative px-3 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <img
+            src="/img/frame2.png"
+            alt="frame"
+            loading="lazy"
+            class="absolute inset-0 pointer-events-none"
+          />
         </div>
         <div>
-          <h3 class="font-serif text-3xl font-semibold text-botanical mb-8 text-center lg:text-left">Groomsmen</h3>
+          <h3
+            class="font-serif text-3xl font-semibold text-botanical mb-8 text-center lg:text-left"
+          >
+            {t("weddingParty.groomsmen.title")}
+          </h3>
           <div class="grid md:grid-cols-2 gap-8">
-            {groomsmen.map((g) => (
-              <div class="text-center p-6 border border-taupe bg-ivory hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
-                  <img src={g.img} alt={g.name} loading="lazy" class="w-full h-full object-cover" />
+            {
+              t("weddingParty.groomsmen.members").map((g) => (
+                <div class="text-center p-6 border border-taupe bg-ivory hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
+                    <img
+                      src={g.img}
+                      alt={g.name}
+                      loading="lazy"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h4 class="font-serif text-xl font-semibold text-botanical">
+                    {g.name}
+                  </h4>
+                  <p class="text-gray-600 text-sm mt-2">{g.role}</p>
                 </div>
-                <h4 class="font-serif text-xl font-semibold text-botanical">{g.name}</h4>
-                <p class="text-gray-600 text-sm mt-2">{g.role}</p>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
       </div>

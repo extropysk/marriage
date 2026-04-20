@@ -1,70 +1,111 @@
 ---
+import { useTranslations } from "../i18n";
+const t = useTranslations();
+const units = [
+  t("hero.countdown.days"),
+  t("hero.countdown.hours"),
+  t("hero.countdown.minutes"),
+  t("hero.countdown.seconds"),
+];
 ---
 
-<section id="home" class="relative py-20 min-h-screen flex items-center justify-center overflow-hidden">
+<section
+  id="home"
+  class="relative py-20 min-h-screen flex items-center justify-center overflow-hidden"
+>
   <div class="absolute inset-0">
     <img src="/img/hero.jpg" alt="Wedding" class="w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-linear-to-b from-botanical/30 via-botanical/80 to-dark/90"></div>
+    <div
+      class="absolute inset-0 bg-linear-to-b from-botanical/30 via-botanical/80 to-dark/90"
+    >
+    </div>
   </div>
 
   <div class="relative z-10 text-center text-white px-4 animate-fade-in-up">
     <div class="mb-4">
-      <span class="inline-block text-base md:text-lg uppercase tracking-[0.3em] font-light mb-4">
-        We're Getting Married
+      <span
+        class="inline-block text-base md:text-lg uppercase tracking-[0.3em] font-light mb-4"
+      >
+        {t("hero.subtitle")}
       </span>
-      <div class="w-40 h-0.5 bg-linear-to-r from-transparent via-white to-transparent mx-auto my-8"></div>
+      <div
+        class="w-40 h-0.5 bg-linear-to-r from-transparent via-white to-transparent mx-auto my-8"
+      >
+      </div>
     </div>
 
-    <h1 class="font-serif text-7xl md:text-8xl lg:text-9xl font-light mb-8 tracking-wide">
-      Emma &amp; Lucas
+    <h1
+      class="font-serif text-7xl md:text-8xl lg:text-9xl font-light mb-8 tracking-wide"
+    >
+      {t("hero.names")}
     </h1>
 
     <p class="text-xl md:text-2xl font-light tracking-[0.3em] mb-12">
-      June 15, 2026
+      {t("hero.date")}
     </p>
 
     <div>
-      <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        {['Days', 'Hours', 'Minutes', 'Seconds'].map((unit) => (
-          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20">
-            <div class="text-center">
-              <div data-unit={unit.toLowerCase()} class="text-5xl md:text-6xl font-bold text-white mb-2">00</div>
-              <div class="text-sm md:text-base text-gray-300 uppercase tracking-wider">{unit}</div>
+      <div
+        id="countdown"
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+      >
+        {
+          units.map((unit) => (
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20">
+              <div class="text-center">
+                <div
+                  data-unit={unit.toLowerCase()}
+                  class="text-5xl md:text-6xl font-bold text-white mb-2"
+                >
+                  00
+                </div>
+                <div class="text-sm md:text-base text-gray-300 uppercase tracking-wider">
+                  {unit}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
       <div data-message class="hidden mt-8 text-center">
-        <p class="text-2xl md:text-3xl font-bold text-white">The wedding ceremony was successfully</p>
+        <p class="text-2xl md:text-3xl font-bold text-white">
+          {t("hero.ceremonyDone")}
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  const targetTime = new Date('2026-06-15T15:00:00').getTime();
-  const container = document.getElementById('countdown');
+  const targetTime = new Date("2026-06-15T15:00:00").getTime();
+  const container = document.getElementById("countdown");
   if (container) {
-    const message = container.parentElement?.querySelector('[data-message]');
+    const message = container.parentElement?.querySelector("[data-message]");
     const elements = {
       days: container.querySelector('[data-unit="days"]'),
       hours: container.querySelector('[data-unit="hours"]'),
       minutes: container.querySelector('[data-unit="minutes"]'),
       seconds: container.querySelector('[data-unit="seconds"]'),
     };
-    const pad = (n: number) => (n < 10 ? '0' + n : String(n));
+    const pad = (n: number) => (n < 10 ? "0" + n : String(n));
 
     const timer = setInterval(() => {
       const distance = targetTime - Date.now();
       if (distance <= 0) {
         clearInterval(timer);
-        container.classList.add('hidden');
-        message?.classList.remove('hidden');
+        container.classList.add("hidden");
+        message?.classList.remove("hidden");
         return;
       }
-      elements.days!.textContent = pad(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      elements.hours!.textContent = pad(Math.floor((distance / (1000 * 60 * 60)) % 24));
-      elements.minutes!.textContent = pad(Math.floor((distance / (1000 * 60)) % 60));
+      elements.days!.textContent = pad(
+        Math.floor(distance / (1000 * 60 * 60 * 24)),
+      );
+      elements.hours!.textContent = pad(
+        Math.floor((distance / (1000 * 60 * 60)) % 24),
+      );
+      elements.minutes!.textContent = pad(
+        Math.floor((distance / (1000 * 60)) % 60),
+      );
       elements.seconds!.textContent = pad(Math.floor((distance / 1000) % 60));
     }, 1000);
   }
