@@ -1,4 +1,4 @@
-import { translations } from "./default";
+import { translations } from "./jk";
 
 type Translations = typeof translations;
 

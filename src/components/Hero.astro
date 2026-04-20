@@ -1,6 +1,8 @@
 ---
 import { useTranslations } from "../i18n";
 const t = useTranslations();
+const prefix = t("meta.prefix");
+
 const units = [
   t("hero.countdown.days"),
   t("hero.countdown.hours"),
@@ -14,7 +16,11 @@ const units = [
   class="relative py-20 min-h-screen flex items-center justify-center overflow-hidden"
 >
   <div class="absolute inset-0">
-    <img src="/img/hero.jpg" alt="Wedding" class="w-full h-full object-cover" />
+    <img
+      src={`/${prefix}/img/hero.jpg`}
+      alt="Wedding"
+      class="w-full h-full object-cover"
+    />
     <div
       class="absolute inset-0 bg-linear-to-b from-botanical/30 via-botanical/80 to-dark/90"
     >
@@ -77,7 +83,7 @@ const units = [
 </section>
 
 <script>
-  const targetTime = new Date("2026-06-15T15:00:00").getTime();
+  const targetTime = new Date("2026-06-13T15:00:00").getTime();
   const container = document.getElementById("countdown");
   if (container) {
     const message = container.parentElement?.querySelector("[data-message]");
