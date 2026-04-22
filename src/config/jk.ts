@@ -198,7 +198,7 @@ export const configJK = {
         },
       ],
     },
-    rsvp: {
+    cta: {
       heading: "Potvrď svoju účasť",
       subtitle:
         "Daj nám vedieť, či prídeš, vyplnením formulára na potvrdenie pozvánky.",
