@@ -5,8 +5,8 @@ export const configJK = {
   },
 
   nav: {
-    home: "Home",
-    story: "Our Story",
+    home: "Doma",
+    story: "Náš príbeh",
     details: "Details",
     schedule: "Schedule",
     gallery: "Gallery",
@@ -43,27 +43,27 @@ export const configJK = {
   },
 
   journey: {
-    heading: "Our Journey Together",
+    heading: "Naša cesta",
     milestones: [
       {
-        date: "October 2019",
-        title: "First Meeting",
-        desc: "A coffee shop encounter that changed everything",
+        date: "Júl 2020",
+        title: "Prvé zoznámenie",
+        desc: "Zemplínska Šírava",
       },
       {
-        date: "February 2020",
-        title: "First Adventure",
-        desc: "Hiking the Pacific Crest Trail together",
+        date: "Marec 2023",
+        title: "Zásnuby",
+        desc: "Edinburgh",
       },
       {
-        date: "November 2021",
-        title: "The Proposal",
-        desc: "Lucas asked, Emma said yes!",
+        date: "Január 2024",
+        title: "Sofia",
+        desc: "Keď pršalo mrholilo, žabiatko sa narodilo.",
       },
       {
-        date: "June 2026",
-        title: "Our Wedding Day",
-        desc: "Beginning our forever together",
+        date: "Jún 2026",
+        title: "Svadobný deň",
+        desc: "",
       },
     ],
   },
