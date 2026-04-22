@@ -4,6 +4,7 @@ export const configDefault = {
     logoImg: "/img/ring.png",
     logoText: "EL",
     date: "2026-06-15T15:00:00",
+    animations: true,
   },
 
   nav: {
@@ -158,6 +159,7 @@ export const configDefault = {
       ],
     },
     info: {
+      hidden: false,
       heading: "Important Information",
       subtitle: "Everything you need to know for our special day",
       items: [

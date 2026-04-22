@@ -4,6 +4,7 @@ export const configJK = {
     logoImg: "",
     logoText: "JK",
     date: "2026-06-13T15:00:00",
+    animations: true,
   },
 
   nav: {
@@ -158,6 +159,7 @@ export const configJK = {
       ],
     },
     info: {
+      hidden: false,
       heading: "Important Information",
       subtitle: "Everything you need to know for our special day",
       items: [

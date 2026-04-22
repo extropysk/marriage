@@ -428,35 +428,37 @@ const t = useTranslations();
     </div>
 
     <!-- Important Information -->
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h3 class="font-serif text-4xl font-semibold text-botanical">
-          {t("details.info.heading")}
-        </h3>
-        <p class="text-gray-600 mt-4">{t("details.info.subtitle")}</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {
-          t("details.info.items").map((item) => (
-            <div class="flex items-start gap-4 p-5 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all bg-white">
-              <div class="bg-sage/10 p-3 rounded-lg shrink-0">
-                <svg
-                  class="w-6 h-6 text-sage"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 3.562-3.248 8 1.314" />
-                </svg>
+    {
+      !t("details.info.hidden") && (
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <h3 class="font-serif text-4xl font-semibold text-botanical">
+              {t("details.info.heading")}
+            </h3>
+            <p class="text-gray-600 mt-4">{t("details.info.subtitle")}</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {t("details.info.items").map((item) => (
+              <div class="flex items-start gap-4 p-5 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all bg-white">
+                <div class="bg-sage/10 p-3 rounded-lg shrink-0">
+                  <svg
+                    class="w-6 h-6 text-sage"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 3.562-3.248 8 1.314" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-botanical">{item.title}</h4>
+                  <p class="text-gray-600 text-sm mt-1">{item.text}</p>
+                </div>
               </div>
-              <div>
-                <h4 class="font-semibold text-botanical">{item.title}</h4>
-                <p class="text-gray-600 text-sm mt-1">{item.text}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
     <!-- RSVP Form Banner -->
     <div
