@@ -1,7 +1,6 @@
 export const configDefault = {
   meta: {
     title: "Emma & Lucas - Our Wedding Day",
-    prefix: "",
     date: "2026-06-15T15:00:00",
   },
 
@@ -26,6 +25,8 @@ export const configDefault = {
       seconds: "Seconds",
     },
     ceremonyDone: "The wedding ceremony was successfully",
+    img: "/img/hero.jpg",
+    imgMobile: "",
   },
 
   story: {
@@ -38,6 +39,7 @@ export const configDefault = {
       title: "The Proposal",
       text: "Two years later, Lucas planned the perfect surprise. He took Emma back to that same coffee shop where they first met. After a nostalgic walk through their favorite spots, he got down on one knee in the park where they had their first picnic. With the sunset painting the sky in shades of pink and gold, Emma said yes through happy tears.",
     },
+    img: "/jk/img/story.jpg",
   },
 
   journey: {

@@ -1,7 +1,6 @@
 export const configJK = {
   meta: {
-    title: "Emma & Lucas - Our Wedding Day",
-    prefix: "/jk",
+    title: "Janka & Kristián - naša svadba",
     date: "2026-06-13T15:00:00",
   },
 
@@ -17,7 +16,7 @@ export const configJK = {
 
   hero: {
     subtitle: "Bude svadba",
-    names: "Janka + Kristián",
+    names: "Janka & Kristián",
     date: "13. jún 2026",
     countdown: {
       days: "Days",
@@ -26,6 +25,8 @@ export const configJK = {
       seconds: "Seconds",
     },
     ceremonyDone: "The wedding ceremony was successfully",
+    img: "/jk/img/hero.jpg",
+    imgMobile: "/jk/img/hero-mobile.jpg",
   },
 
   story: {
@@ -38,6 +39,7 @@ export const configJK = {
       title: "",
       text: "A tak sa z jedného spoteného cyklistu a jednej celkom odvážnej konverzácie na chate stal príbeh, ktorý nás doviedol až sem.",
     },
+    img: "/jk/img/story.jpg",
   },
 
   journey: {
