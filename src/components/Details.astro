@@ -457,5 +457,30 @@ const t = useTranslations();
         }
       </div>
     </div>
+
+    <!-- RSVP Form Banner -->
+    <div
+      class="max-w-6xl mx-auto mt-20 text-center bg-white rounded-2xl shadow-sm border border-mist px-8 py-12"
+    >
+      <h3 class="font-serif text-4xl font-light text-botanical mb-4">
+        {t("details.rsvp.heading")}
+      </h3>
+      <p class="text-gray-600 mb-8 max-w-xl mx-auto">
+        {t("details.rsvp.subtitle")}
+      </p>
+      <a
+        href={t("details.rsvp.url") || "#rsvp"}
+        target={t("details.rsvp.url") ? "_blank" : "_self"}
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-botanical text-white px-8 py-4 rounded-lg text-lg hover:bg-botanical/90 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+          ></path>
+        </svg>
+        {t("details.rsvp.btn")}
+      </a>
+    </div>
   </div>
 </section>

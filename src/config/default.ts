@@ -196,6 +196,13 @@ export const configDefault = {
         },
       ],
     },
+    rsvp: {
+      heading: "Confirm Your Attendance",
+      subtitle:
+        "Please let us know if you'll be joining us by filling out the invitation acceptance form.",
+      btn: "Accept Invitation",
+      url: "",
+    },
   },
 
   schedule: {

@@ -196,6 +196,13 @@ export const configJK = {
         },
       ],
     },
+    rsvp: {
+      heading: "Potvrď svoju účasť",
+      subtitle:
+        "Daj nám vedieť, či prídeš, vyplnením formulára na potvrdenie pozvánky.",
+      btn: "Potvrdiť účasť",
+      url: "https://docs.google.com/forms/d/1Oh8213tRy9T2T3Ieu8-5YQl_DjcA7ifxykOav-fAU6Y",
+    },
   },
 
   schedule: {
