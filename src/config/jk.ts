@@ -1,6 +1,8 @@
 export const configJK = {
   meta: {
     title: "Janka & Kristián - naša svadba",
+    logoImg: "",
+    logoText: "JK",
     date: "2026-06-13T15:00:00",
   },
 
