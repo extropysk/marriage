@@ -1,7 +1,7 @@
 export const configJK = {
   meta: {
     title: "Emma & Lucas - Our Wedding Day",
-    prefix: "jk",
+    prefix: "/jk",
     date: "2026-06-13T15:00:00",
   },
 
