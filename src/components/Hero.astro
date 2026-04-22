@@ -1,7 +1,9 @@
 ---
-import { useTranslations } from "../i18n";
+import { useTranslations } from "../utils/i18n";
 const t = useTranslations();
-const prefix = t("meta.prefix");
+
+const { prefix, date } = t("meta");
+const targetTime = new Date(date).getTime();
 
 const units = [
   t("hero.countdown.days"),
@@ -53,6 +55,7 @@ const units = [
     <div>
       <div
         id="countdown"
+        data-target={targetTime}
         class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
       >
         {
@@ -83,9 +86,9 @@ const units = [
 </section>
 
 <script>
-  const targetTime = new Date("2026-06-13T15:00:00").getTime();
   const container = document.getElementById("countdown");
   if (container) {
+    const targetTime = Number(container.dataset.target);
     const message = container.parentElement?.querySelector("[data-message]");
     const elements = {
       days: container.querySelector('[data-unit="days"]'),

@@ -1,6 +1,8 @@
-export const translations = {
+export const configJK = {
   meta: {
     title: "Emma & Lucas - Our Wedding Day",
+    prefix: "jk",
+    date: "2026-06-13T15:00:00",
   },
 
   nav: {
@@ -14,9 +16,9 @@ export const translations = {
   },
 
   hero: {
-    subtitle: "We're Getting Married",
-    names: "Emma & Lucas",
-    date: "June 15, 2026",
+    subtitle: "Bude svadba",
+    names: "Janka + Kristián",
+    date: "13. jún 2026",
     countdown: {
       days: "Days",
       hours: "Hours",
@@ -27,14 +29,14 @@ export const translations = {
   },
 
   story: {
-    heading: "Our Love Story",
+    heading: "Ako sme sa spoznali",
     howWeMet: {
-      title: "How We Met",
-      text: "It was a rainy autumn evening in October 2019 at a cozy coffee shop in downtown Portland. Emma was reading her favorite novel when Lucas accidentally spilled his latte. What started as an embarrassing moment turned into hours of conversation and laughter.",
+      title: "",
+      text: "Náš príbeh sa začal v roku 2020 – v čase, keď boli zatvorené hranice, reštaurácie aj polovica sveta, no aj tak sme sa stretli osobne – na chate na Šírave. Spojila nás náhoda, spoloční ľudia a jedno letné stretnutie, ktoré malo pôvodne trvať len pár dní. Kristián sa rozhodol prísť vo veľkom štýle – bicyklom z Popradu. Keď dorazil, bol síce dosť spotený, ale evidentne to nebránilo v ceste osudovému zoznámeniu. Ja som totiž neváhala a hneď som sa mu prihovorila (áno, aj v takých podmienkach). Počas troch dní na chate sme postupne zistili, že si máme čo povedať – a že nás to spolu celkom baví.",
     },
     proposal: {
-      title: "The Proposal",
-      text: "Two years later, Lucas planned the perfect surprise. He took Emma back to that same coffee shop where they first met. After a nostalgic walk through their favorite spots, he got down on one knee in the park where they had their first picnic. With the sunset painting the sky in shades of pink and gold, Emma said yes through happy tears.",
+      title: "",
+      text: "A tak sa z jedného spoteného cyklistu a jednej celkom odvážnej konverzácie na chate stal príbeh, ktorý nás doviedol až sem.",
     },
   },
 
