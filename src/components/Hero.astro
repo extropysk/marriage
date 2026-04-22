@@ -23,7 +23,11 @@ const imgMobile = t("hero.imgMobile");
   <div class="absolute inset-0">
     <picture>
       {imgMobile && <source media="(max-width: 767px)" srcset={imgMobile} />}
-      <img src={img} alt="Wedding" class="w-full h-full object-cover" />
+      <img
+        src={img}
+        alt={t("hero.subtitle")}
+        class="w-full h-full object-cover"
+      />
     </picture>
     <div
       class="absolute inset-0 bg-linear-to-b from-botanical/30 via-botanical/80 to-dark/90"

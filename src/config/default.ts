@@ -85,6 +85,7 @@ export const configDefault = {
     btnDirections: "Get Directions",
     btnRundown: "Rundown",
     ceremony: {
+      img: "/img/hero.jpg",
       title: "Ceremony",
       tagline: "Where two hearts become one",
       date: "Saturday, June 15, 2026",
@@ -98,6 +99,7 @@ export const configDefault = {
       durationNote: "Outdoor garden ceremony",
     },
     reception: {
+      img: "/img/ballroom.jpg",
       title: "Reception",
       tagline: "Celebrate with us in elegance",
       date: "Saturday, June 15, 2026",

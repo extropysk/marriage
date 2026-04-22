@@ -85,6 +85,7 @@ export const configJK = {
     btnDirections: "Get Directions",
     btnRundown: "Rundown",
     ceremony: {
+      img: "/jk/img/ceremony.jpg",
       title: "Ceremony",
       tagline: "Where two hearts become one",
       date: "Saturday, June 15, 2026",
@@ -98,6 +99,7 @@ export const configJK = {
       durationNote: "Outdoor garden ceremony",
     },
     reception: {
+      img: "/jk/img/ballroom.jpg",
       title: "Reception",
       tagline: "Celebrate with us in elegance",
       date: "Saturday, June 15, 2026",
@@ -159,7 +161,7 @@ export const configJK = {
       ],
     },
     info: {
-      hidden: false,
+      hidden: true,
       heading: "Important Information",
       subtitle: "Everything you need to know for our special day",
       items: [
