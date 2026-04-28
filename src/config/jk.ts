@@ -8,13 +8,13 @@ export const configJK = {
   },
 
   nav: {
-    home: "Doma",
-    story: "Náš príbeh",
-    details: "Details",
-    schedule: "Schedule",
-    gallery: "Gallery",
-    rsvp: "RSVP",
     toggleMenu: "Toggle menu",
+    menu: [
+      { href: "#home", label: "Domov" },
+      { href: "#story", label: "Náš príbeh" },
+      { href: "#details", label: "Detaily" },
+      { href: "#faq", label: "FAQ" },
+    ],
   },
 
   hero: {
@@ -33,6 +33,7 @@ export const configJK = {
   },
 
   story: {
+    hidden: false,
     heading: "Ako sme sa spoznali",
     howWeMet: {
       title: "",
@@ -46,17 +47,18 @@ export const configJK = {
   },
 
   journey: {
+    hidden: false,
     heading: "Naša cesta",
     milestones: [
       {
         date: "Júl 2020",
-        title: "Prvé zoznámenie",
-        desc: "Zemplínska Šírava",
+        title: "Prvé stretnutie",
+        desc: "Zemplínska Šírava dala nášmu príbehu jeho úplne prvú kapitolu.",
       },
       {
         date: "Marec 2023",
         title: "Zásnuby",
-        desc: "Edinburgh",
+        desc: "Edinburgh - mesto plné tajomstiev, legiend a nesmrteľných príbehov. Aj toho nášho.",
       },
       {
         date: "Január 2024",
@@ -66,12 +68,13 @@ export const configJK = {
       {
         date: "Jún 2026",
         title: "Svadobný deň",
-        desc: "",
+        desc: "Prežite náš veľký deň s nami!",
       },
     ],
   },
 
   details: {
+    hidden: false,
     heading: "Wedding Details",
     subtitle:
       "Join us for a day of celebration filled with love, laughter, and unforgettable memories",
@@ -210,6 +213,7 @@ export const configJK = {
   },
 
   schedule: {
+    hidden: true,
     heading: "Wedding Itinerary",
     days: [
       {
@@ -259,6 +263,7 @@ export const configJK = {
   },
 
   weddingParty: {
+    hidden: true,
     heading: "Our Loved Ones",
     bridesmaids: {
       title: "Bridesmaids",
@@ -313,11 +318,13 @@ export const configJK = {
   },
 
   gallery: {
+    hidden: true,
     heading: "Engagement Photos",
     photoAlt: "Engagement photo",
   },
 
   registry: {
+    hidden: true,
     heading: "Gift Registry",
     subtitle:
       "Your presence at our wedding is the greatest gift of all! However, if you wish to honor us with a gift, we've registered at the following stores.",
@@ -330,6 +337,7 @@ export const configJK = {
   },
 
   rsvp: {
+    hidden: true,
     heading: "RSVP",
     subtitle:
       "Kindly respond by May 1st, 2026. We can't wait to celebrate with you!",
@@ -363,6 +371,7 @@ export const configJK = {
   },
 
   faq: {
+    hidden: false,
     heading: "Frequently Asked Questions",
     items: [
       {
@@ -401,6 +410,7 @@ export const configJK = {
   },
 
   contact: {
+    hidden: false,
     heading: "Get In Touch",
     subtitle:
       "Have questions? Need more information? Feel free to reach out to our wedding planner or contact us directly.",
@@ -417,6 +427,7 @@ export const configJK = {
       emergency: "For day-of emergencies, please contact our wedding planner",
     },
     social: {
+      hidden: true,
       text: "Follow our journey on social media",
       hashtag: "#EmmaAndLucasForever",
     },

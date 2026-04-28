@@ -21,16 +21,16 @@ const t = useTranslations();
   <Header />
   <main>
     <Hero />
-    <Story />
-    <Journey />
-    <Details />
-    <Schedule />
-    <WeddingParty />
-    <Gallery />
-    <Registry />
-    <Rsvp />
-    <Faq />
-    <Contact />
+    {!t("story.hidden") && <Story />}
+    {!t("journey.hidden") && <Journey />}
+    {!t("details.hidden") && <Details />}
+    {!t("schedule.hidden") && <Schedule />}
+    {!t("weddingParty.hidden") && <WeddingParty />}
+    {!t("gallery.hidden") && <Gallery />}
+    {!t("registry.hidden") && <Registry />}
+    {!t("rsvp.hidden") && <Rsvp />}
+    {!t("faq.hidden") && <Faq />}
+    {!t("contact.hidden") && <Contact />}
   </main>
   <Footer />
 </Layout>

@@ -8,13 +8,15 @@ export const configDefault = {
   },
 
   nav: {
-    home: "Home",
-    story: "Our Story",
-    details: "Details",
-    schedule: "Schedule",
-    gallery: "Gallery",
-    rsvp: "RSVP",
     toggleMenu: "Toggle menu",
+    menu: [
+      { href: "#home", label: "Home" },
+      { href: "#story", label: "Our Story" },
+      { href: "#details", label: "Details" },
+      { href: "#schedule", label: "Schedule" },
+      { href: "#gallery", label: "Gallery" },
+      { href: "#rsvp", label: "RSVP" },
+    ],
   },
 
   hero: {
@@ -33,6 +35,7 @@ export const configDefault = {
   },
 
   story: {
+    hidden: false,
     heading: "Our Love Story",
     howWeMet: {
       title: "How We Met",
@@ -46,6 +49,7 @@ export const configDefault = {
   },
 
   journey: {
+    hidden: false,
     heading: "Our Journey Together",
     milestones: [
       {
@@ -72,6 +76,7 @@ export const configDefault = {
   },
 
   details: {
+    hidden: false,
     heading: "Wedding Details",
     subtitle:
       "Join us for a day of celebration filled with love, laughter, and unforgettable memories",
@@ -210,6 +215,7 @@ export const configDefault = {
   },
 
   schedule: {
+    hidden: false,
     heading: "Wedding Itinerary",
     days: [
       {
@@ -259,6 +265,7 @@ export const configDefault = {
   },
 
   weddingParty: {
+    hidden: false,
     heading: "Our Loved Ones",
     bridesmaids: {
       title: "Bridesmaids",
@@ -313,11 +320,13 @@ export const configDefault = {
   },
 
   gallery: {
+    hidden: false,
     heading: "Engagement Photos",
     photoAlt: "Engagement photo",
   },
 
   registry: {
+    hidden: false,
     heading: "Gift Registry",
     subtitle:
       "Your presence at our wedding is the greatest gift of all! However, if you wish to honor us with a gift, we've registered at the following stores.",
@@ -330,6 +339,7 @@ export const configDefault = {
   },
 
   rsvp: {
+    hidden: false,
     heading: "RSVP",
     subtitle:
       "Kindly respond by May 1st, 2026. We can't wait to celebrate with you!",
@@ -363,6 +373,7 @@ export const configDefault = {
   },
 
   faq: {
+    hidden: false,
     heading: "Frequently Asked Questions",
     items: [
       {
@@ -401,6 +412,7 @@ export const configDefault = {
   },
 
   contact: {
+    hidden: false,
     heading: "Get In Touch",
     subtitle:
       "Have questions? Need more information? Feel free to reach out to our wedding planner or contact us directly.",
@@ -417,6 +429,7 @@ export const configDefault = {
       emergency: "For day-of emergencies, please contact our wedding planner",
     },
     social: {
+      hidden: false,
       text: "Follow our journey on social media",
       hashtag: "#EmmaAndLucasForever",
     },
