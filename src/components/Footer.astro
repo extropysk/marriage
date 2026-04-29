@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from "../i18n";
+import { useTranslations } from "../utils/i18n";
 const t = useTranslations();
 ---
 
@@ -11,12 +11,10 @@ const t = useTranslations();
   </div>
   <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
     <div class="font-serif text-4xl font-bold tracking-wide mb-8">
-      <span>E</span>
-      <span class="mx-2">&amp;</span>
-      <span>L</span>
+      {t("meta.logoText")}
     </div>
 
-    <nav class="flex flex-wrap justify-center gap-2 mb-8">
+    <!-- <nav class="flex flex-wrap justify-center gap-2 mb-8">
       <a
         href="#home"
         class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider"
@@ -40,10 +38,10 @@ const t = useTranslations();
         class="hover:text-yellow-400 transition-colors text-sm uppercase tracking-wider"
         >{t("footer.nav.rsvp")}</a
       >
-    </nav>
+    </nav> -->
 
     <p
-      class="text-white/70 text-sm mb-4 flex items-center justify-center gap-2"
+      class="text-white/70 text-sm mb-2 flex items-center justify-center gap-2"
     >
       {t("footer.madeWith")}
       <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 16 16"

@@ -1,6 +1,9 @@
 ---
-import { useTranslations } from "../i18n";
+import { useTranslations } from "../utils/i18n";
 const t = useTranslations();
+
+const ctaUrl = t("details.cta.url");
+const ctaTarget = ctaUrl && ctaUrl[0] === "#" ? "_self" : "_blank";
 ---
 
 <section id="details" class="py-20 md:py-24 bg-mist/50">
@@ -31,8 +34,8 @@ const t = useTranslations();
       >
         <div class="relative overflow-hidden group">
           <img
-            src="/img/hero.jpg"
-            alt="Rose Garden"
+            src={t("details.ceremony.img")}
+            alt={t("details.ceremony.title")}
             loading="lazy"
             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -164,9 +167,9 @@ const t = useTranslations();
           </div>
           <div class="mt-8 flex gap-3">
             <a
-              href="https://maps.google.com"
+              href={t("details.ceremony.btnDirections")}
               target="_blank"
-              class="flex items-center py-3 px-6 bg-botanical text-white gap-2 rounded-lg hover:bg-botanical/90"
+              class="flex items-center gap-2 border-2 border-botanical text-botanical px-6 py-3 rounded-lg hover:bg-botanical hover:text-white transition-all"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"
                 ><path
@@ -176,17 +179,19 @@ const t = useTranslations();
               >
               {t("details.btnDirections")}
             </a>
-            <button
-              x-on:click="$dispatch('open-rundown')"
-              class="flex items-center gap-2 border-2 border-botanical text-botanical px-6 py-3 rounded-lg hover:bg-botanical hover:text-white transition-all"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"
-                ><path
-                  d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"
-                ></path></svg
-              >
-              {t("details.btnRundown")}
-            </button>
+            {
+              !t("details.timeline.hidden") && (
+                <button
+                  x-on:click="$dispatch('open-rundown')"
+                  class="flex items-center py-3 px-6 bg-botanical text-white gap-2 rounded-lg hover:bg-botanical/90"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                  </svg>
+                  {t("details.btnRundown")}
+                </button>
+              )
+            }
           </div>
         </div>
       </div>
@@ -197,8 +202,8 @@ const t = useTranslations();
       >
         <div class="relative overflow-hidden group">
           <img
-            src="/img/ballroom.jpg"
-            alt="Grand Ballroom"
+            src={t("details.reception.img")}
+            alt={t("details.reception.title")}
             loading="lazy"
             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -334,9 +339,9 @@ const t = useTranslations();
           </div>
           <div class="mt-8 flex gap-3">
             <a
-              href="https://maps.google.com"
+              href={t("details.reception.btnDirections")}
               target="_blank"
-              class="flex items-center py-3 px-6 bg-botanical text-white gap-2 rounded-lg hover:bg-botanical/90"
+              class="flex items-center gap-2 border-2 border-botanical text-botanical px-6 py-3 rounded-lg hover:bg-botanical hover:text-white transition-all"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"
                 ><path
@@ -346,17 +351,19 @@ const t = useTranslations();
               >
               {t("details.btnDirections")}
             </a>
-            <button
-              x-on:click="$dispatch('open-rundown')"
-              class="flex items-center gap-2 border-2 border-botanical text-botanical px-6 py-3 rounded-lg hover:bg-botanical hover:text-white transition-all"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"
-                ><path
-                  d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"
-                ></path></svg
-              >
-              {t("details.btnRundown")}
-            </button>
+            {
+              !t("details.timeline.hidden") && (
+                <button
+                  x-on:click="$dispatch('open-rundown')"
+                  class="flex items-center py-3 px-6 bg-botanical text-white gap-2 rounded-lg hover:bg-botanical/90"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
+                  </svg>
+                  {t("details.btnRundown")}
+                </button>
+              )
+            }
           </div>
         </div>
       </div>
@@ -428,34 +435,61 @@ const t = useTranslations();
     </div>
 
     <!-- Important Information -->
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h3 class="font-serif text-4xl font-semibold text-botanical">
-          {t("details.info.heading")}
-        </h3>
-        <p class="text-gray-600 mt-4">{t("details.info.subtitle")}</p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {
-          t("details.info.items").map((item) => (
-            <div class="flex items-start gap-4 p-5 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all bg-white">
-              <div class="bg-sage/10 p-3 rounded-lg shrink-0">
-                <svg
-                  class="w-6 h-6 text-sage"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 3.562-3.248 8 1.314" />
-                </svg>
+    {
+      !t("details.info.hidden") && (
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <h3 class="font-serif text-4xl font-semibold text-botanical">
+              {t("details.info.heading")}
+            </h3>
+            <p class="text-gray-600 mt-4">{t("details.info.subtitle")}</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {t("details.info.items").map((item) => (
+              <div class="flex items-start gap-4 p-5 rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all bg-white">
+                <div class="bg-sage/10 p-3 rounded-lg shrink-0">
+                  <svg
+                    class="w-6 h-6 text-sage"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15C-7.534 4.736 3.562-3.248 8 1.314" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-botanical">{item.title}</h4>
+                  <p class="text-gray-600 text-sm mt-1">{item.text}</p>
+                </div>
               </div>
-              <div>
-                <h4 class="font-semibold text-botanical">{item.title}</h4>
-                <p class="text-gray-600 text-sm mt-1">{item.text}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- CTA -->
+    <div
+      class="max-w-6xl mx-auto mt-20 text-center bg-white rounded-2xl shadow-sm border border-mist px-8 py-12"
+    >
+      <h3 class="font-serif text-4xl font-light text-botanical mb-4">
+        {t("details.cta.heading")}
+      </h3>
+      <p class="text-gray-600 mb-8 max-w-xl mx-auto">
+        {t("details.cta.subtitle")}
+      </p>
+      <a
+        href={ctaUrl}
+        target={ctaTarget}
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-botanical text-white px-8 py-4 rounded-lg text-lg hover:bg-botanical/90 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+          ></path>
+        </svg>
+        {t("details.cta.btn")}
+      </a>
     </div>
   </div>
 </section>

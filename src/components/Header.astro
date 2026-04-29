@@ -1,14 +1,8 @@
 ---
-import { useTranslations } from "../i18n";
+import { useTranslations } from "../utils/i18n";
 const t = useTranslations();
-const navItems = [
-  { href: "#home", label: t("nav.home") },
-  { href: "#story", label: t("nav.story") },
-  { href: "#details", label: t("nav.details") },
-  { href: "#schedule", label: t("nav.schedule") },
-  { href: "#gallery", label: t("nav.gallery") },
-  { href: "#rsvp", label: t("nav.rsvp") },
-];
+const menu = t("nav.menu");
+const logo = t("meta.logoImg");
 ---
 
 <header
@@ -17,25 +11,28 @@ const navItems = [
 >
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center h-20">
-      <a href="#home" aria-label={t("nav.home")}>
+      <a href="#home" aria-label={t("meta.title")}>
         <div
           class="font-serif text-4xl font-bold text-botanical tracking-wide flex items-center gap-2"
         >
-          <span>E</span>
-          <img
-            src="/img/ring.png"
-            alt="Wedding Ring Logo"
-            width="48"
-            height="48"
-            loading="lazy"
-          />
-          <span>L</span>
+          {
+            logo && (
+              <img
+                src={logo}
+                alt="logo"
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+            )
+          }
+          <span>{t("meta.logoText")}</span>
         </div>
       </a>
 
       <nav class="hidden lg:flex lg:items-center desktop-navbar">
         {
-          navItems.map((item) => (
+          menu.map((item) => (
             <a href={item.href} class="menu-item nav-link">
               {item.label}
             </a>
@@ -85,7 +82,7 @@ const navItems = [
       class="lg:hidden pb-6 space-y-4 mobile-navbar"
     >
       {
-        navItems.map((item) => (
+        menu.map((item) => (
           <a
             href={item.href}
             x-on:click="open = false"

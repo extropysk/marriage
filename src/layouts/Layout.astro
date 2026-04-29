@@ -1,12 +1,18 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
+import { useTranslations } from "../utils/i18n";
+const t = useTranslations();
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebrating our special day filled with love, joy, and unforgettable moments." } = Astro.props;
+const {
+  title,
+  description = "Emma & Lucas - Our Wedding Day. Join us in celebrating our special day filled with love, joy, and unforgettable moments.",
+} = Astro.props;
+const animations = t("meta.animations");
 ---
 
 <!doctype html>
@@ -23,21 +29,24 @@ const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebra
       rel="stylesheet"
     />
   </head>
-  <body class="font-sans bg-ivory text-gray-800 leading-relaxed pt-20">
+  <body
+    class="font-sans bg-ivory text-gray-800 leading-relaxed pt-20"
+    data-animations={String(animations)}
+  >
     <slot />
 
     <script>
-      import Alpine from 'alpinejs';
+      import Alpine from "alpinejs";
       // @ts-ignore
       window.Alpine = Alpine;
       Alpine.start();
     </script>
 
     <script>
-      import GLightbox from 'glightbox';
-      import 'glightbox/dist/css/glightbox.min.css';
+      import GLightbox from "glightbox";
+      import "glightbox/dist/css/glightbox.min.css";
       GLightbox({
-        selector: '.glightbox',
+        selector: ".glightbox",
         touchNavigation: true,
         loop: true,
       });
@@ -46,36 +55,37 @@ const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebra
     <script>
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', (e) => {
+        anchor.addEventListener("click", (e) => {
           e.preventDefault();
-          const href = anchor.getAttribute('href');
+          const href = anchor.getAttribute("href");
           if (!href) return;
           const target = document.querySelector(href);
           if (target) {
             const el = target as HTMLElement;
-            const offset = el.getBoundingClientRect().top + window.pageYOffset - 80;
-            window.scrollTo({ top: offset, behavior: 'smooth' });
+            const offset =
+              el.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: offset, behavior: "smooth" });
           }
         });
       });
 
       // Active nav link highlighter
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
 
-      window.addEventListener('scroll', () => {
-        let current = '';
+      window.addEventListener("scroll", () => {
+        let current = "";
         sections.forEach((section) => {
           const el = section as HTMLElement;
           const sectionTop = el.offsetTop - 100;
           if (window.pageYOffset >= sectionTop) {
-            current = el.getAttribute('id') || '';
+            current = el.getAttribute("id") || "";
           }
         });
         navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
           }
         });
       });
@@ -89,17 +99,17 @@ const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebra
         constructor(flowers: string[], leafs: string[]) {
           this.flowers = flowers;
           this.leafs = leafs;
-          this.container = document.createElement('div');
+          this.container = document.createElement("div");
           this.init();
         }
 
         init() {
           Object.assign(this.container.style, {
-            position: 'fixed',
-            inset: '0',
-            pointerEvents: 'none',
-            zIndex: '9999',
-            overflow: 'hidden',
+            position: "fixed",
+            inset: "0",
+            pointerEvents: "none",
+            zIndex: "9999",
+            overflow: "hidden",
           });
           document.body.appendChild(this.container);
           this.createItem();
@@ -111,23 +121,31 @@ const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebra
           const items = isFlower ? this.flowers : this.leafs;
           const src = items[Math.floor(Math.random() * items.length)];
           const emojis = isFlower
-            ? ['\u{1F338}', '\u{1F33A}', '\u{1F337}', '\u{1F490}', '\u{1F33B}', '\u{1F339}']
-            : ['\u{1F343}', '\u{1F342}', '\u{1F341}', '\u{1F33F}'];
+            ? [
+                "\u{1F338}",
+                "\u{1F33A}",
+                "\u{1F337}",
+                "\u{1F490}",
+                "\u{1F33B}",
+                "\u{1F339}",
+              ]
+            : ["\u{1F343}", "\u{1F342}", "\u{1F341}", "\u{1F33F}"];
 
-          const img = document.createElement('img');
+          const img = document.createElement("img");
           img.src = src;
-          img.style.position = 'absolute';
-          img.style.top = '-60px';
-          img.style.left = Math.random() * 90 + '%';
-          img.style.width = 30 + Math.random() * 30 + 'px';
-          img.style.opacity = '0.95';
-          img.style.pointerEvents = 'none';
+          img.style.position = "absolute";
+          img.style.top = "-60px";
+          img.style.left = Math.random() * 90 + "%";
+          img.style.width = 30 + Math.random() * 30 + "px";
+          img.style.opacity = "0.95";
+          img.style.pointerEvents = "none";
 
           img.onerror = () => {
-            const span = document.createElement('span');
-            span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            const span = document.createElement("span");
+            span.textContent =
+              emojis[Math.floor(Math.random() * emojis.length)];
             span.style.cssText = img.style.cssText;
-            span.style.fontSize = '24px';
+            span.style.fontSize = "24px";
             this.container.appendChild(span);
             this.animate(span);
             img.remove();
@@ -171,10 +189,17 @@ const { title, description = "Emma & Lucas - Our Wedding Day. Join us in celebra
         }
       }
 
-      new FallingFlowers(
-        ['/img/flower1.png', '/img/flower2.png', '/img/flower3.png'],
-        ['/img/leaf1.png', '/img/leaf2.png', '/img/leaf3.png', '/img/leaf4.png']
-      );
+      if (document.body.dataset.animations === "true") {
+        new FallingFlowers(
+          ["/img/flower1.png", "/img/flower2.png", "/img/flower3.png"],
+          [
+            "/img/leaf1.png",
+            "/img/leaf2.png",
+            "/img/leaf3.png",
+            "/img/leaf4.png",
+          ],
+        );
+      }
     </script>
   </body>
 </html>

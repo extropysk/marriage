@@ -1,12 +1,19 @@
 ---
-import { useTranslations } from "../i18n";
+import { useTranslations } from "../utils/i18n";
 const t = useTranslations();
+
+const date = t("meta.date");
+const targetTime = new Date(date).getTime();
+
 const units = [
   t("hero.countdown.days"),
   t("hero.countdown.hours"),
   t("hero.countdown.minutes"),
   t("hero.countdown.seconds"),
 ];
+
+const img = t("hero.img");
+const imgMobile = t("hero.imgMobile");
 ---
 
 <section
@@ -14,7 +21,14 @@ const units = [
   class="relative py-20 min-h-screen flex items-center justify-center overflow-hidden"
 >
   <div class="absolute inset-0">
-    <img src="/img/hero.jpg" alt="Wedding" class="w-full h-full object-cover" />
+    <picture>
+      {imgMobile && <source media="(max-width: 767px)" srcset={imgMobile} />}
+      <img
+        src={img}
+        alt={t("hero.subtitle")}
+        class="w-full h-full object-cover"
+      />
+    </picture>
     <div
       class="absolute inset-0 bg-linear-to-b from-botanical/30 via-botanical/80 to-dark/90"
     >
@@ -47,6 +61,7 @@ const units = [
     <div>
       <div
         id="countdown"
+        data-target={targetTime}
         class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
       >
         {
@@ -77,9 +92,9 @@ const units = [
 </section>
 
 <script>
-  const targetTime = new Date("2026-06-15T15:00:00").getTime();
   const container = document.getElementById("countdown");
   if (container) {
+    const targetTime = Number(container.dataset.target);
     const message = container.parentElement?.querySelector("[data-message]");
     const elements = {
       days: container.querySelector('[data-unit="days"]'),
