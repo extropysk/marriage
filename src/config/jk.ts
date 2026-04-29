@@ -4,7 +4,7 @@ export const configJK = {
     logoImg: "",
     logoText: "JK",
     date: "2026-06-13T15:00:00",
-    animations: true,
+    animations: false,
   },
 
   nav: {
@@ -405,23 +405,25 @@ export const configJK = {
 
   contact: {
     hidden: false,
-    heading: "Get In Touch",
+    heading: "Kontakt",
     subtitle:
       "Have questions? Need more information? Feel free to reach out to our wedding planner or contact us directly.",
     planner: {
-      name: "Jennifer Rose Events",
-      role: "Wedding Planner",
-      email: "jennifer@roseevents.com",
-      phone: "(503) 555-0123",
+      name: "Danka",
+      role: "Svedkyňa nevesty",
+      email: "",
+      phone: "",
+      img: "/jk/img/planner.jpg",
     },
     couple: {
-      name: "Emma & Lucas",
-      role: "The Couple",
-      email: "emmaandlucas2026@email.com",
-      emergency: "For day-of emergencies, please contact our wedding planner",
+      name: "Karin",
+      role: "Svedkyňa ženícha",
+      email: "",
+      phone: "",
+      img: "/jk/img/couple.jpg",
     },
     social: {
-      hidden: false,
+      hidden: true,
       text: "Follow our journey on social media",
       hashtag: "#EmmaAndLucasForever",
     },

@@ -424,12 +424,14 @@ export const configDefault = {
       role: "Wedding Planner",
       email: "jennifer@roseevents.com",
       phone: "(503) 555-0123",
+      img: "/img/planner.jpg",
     },
     couple: {
       name: "Emma & Lucas",
       role: "The Couple",
       email: "emmaandlucas2026@email.com",
-      emergency: "For day-of emergencies, please contact our wedding planner",
+      phone: "(503) 555-0123",
+      img: "/img/gallery4.jpg",
     },
     social: {
       hidden: false,

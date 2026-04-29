@@ -40,7 +40,7 @@ const t = useTranslations();
       >
         <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
           <img
-            src="/img/planner.jpg"
+            src={t("contact.planner.img")}
             alt={t("contact.planner.name")}
             loading="lazy"
             class="w-full h-full object-cover"
@@ -70,7 +70,7 @@ const t = useTranslations();
       >
         <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
           <img
-            src="/img/gallery4.jpg"
+            src={t("contact.couple.img")}
             alt={t("contact.couple.name")}
             loading="lazy"
             class="w-full h-full object-cover"
@@ -86,9 +86,11 @@ const t = useTranslations();
             class="block text-gray-600 hover:text-botanical transition-colors"
             >{t("contact.couple.email")}</a
           >
-          <p class="text-sm text-gray-500 mt-2">
-            {t("contact.couple.emergency")}
-          </p>
+          <a
+            href={`tel:${t("contact.couple.phone")}`}
+            class="block text-gray-600 hover:text-botanical transition-colors"
+            >{t("contact.couple.phone")}</a
+          >
         </div>
       </div>
     </div>
