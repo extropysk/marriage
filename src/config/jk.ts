@@ -436,6 +436,6 @@ export const configJK = {
     },
     madeWith: "Made with",
     madeFor: "for our special day",
-    copyright: "© 2026 Emma & Lucas. All rights reserved.",
+    copyright: "© 2026 Janka & Kristián",
   },
 } as const;
