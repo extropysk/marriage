@@ -102,6 +102,7 @@ export const configDefault = {
       addressLine2: "Portland, OR 97201",
       duration: "45 minutes",
       durationNote: "Outdoor garden ceremony",
+      btnDirections: "https://maps.google.com",
     },
     reception: {
       img: "/img/ballroom.jpg",
@@ -116,8 +117,10 @@ export const configDefault = {
       addressLine2: "Portland, OR 97202",
       entertainment: "Live Band & DJ",
       entertainmentNote: "Dinner, dancing & celebration",
+      btnDirections: "https://maps.google.com",
     },
     timeline: {
+      hidden: false,
       heading: "Day Timeline",
       subtitle: "Here's how our special day will unfold",
       items: [
