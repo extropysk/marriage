@@ -34,65 +34,36 @@ const t = useTranslations();
     </div>
 
     <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
-      <!-- Wedding Planner -->
-      <div
-        class="bg-white p-8 shadow-lg border border-mist text-center hover:shadow-xl transition-all"
-      >
-        <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
-          <img
-            src={t("contact.planner.img")}
-            alt={t("contact.planner.name")}
-            loading="lazy"
-            class="w-full h-full object-cover"
-          />
+      {t("contact.cards").map((card) => (
+        <div class="bg-white p-8 shadow-lg border border-mist text-center hover:shadow-xl transition-all">
+          <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
+            <img
+              src={card.img}
+              alt={card.name}
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-botanical">
+            {card.name}
+          </h3>
+          <p class="text-sage text-sm mb-4">{card.role}</p>
+          <div class="space-y-2">
+            {card.email && (
+              <a
+                href={`mailto:${card.email}`}
+                class="block text-gray-600 hover:text-botanical transition-colors"
+              >{card.email}</a>
+            )}
+            {card.phone && (
+              <a
+                href={`tel:${card.phone}`}
+                class="block text-gray-600 hover:text-botanical transition-colors"
+              >{card.phone}</a>
+            )}
+          </div>
         </div>
-        <h3 class="font-serif text-xl font-semibold text-botanical">
-          {t("contact.planner.name")}
-        </h3>
-        <p class="text-sage text-sm mb-4">{t("contact.planner.role")}</p>
-        <div class="space-y-2">
-          <a
-            href={`mailto:${t("contact.planner.email")}`}
-            class="block text-gray-600 hover:text-botanical transition-colors"
-            >{t("contact.planner.email")}</a
-          >
-          <a
-            href={`tel:${t("contact.planner.phone")}`}
-            class="block text-gray-600 hover:text-botanical transition-colors"
-            >{t("contact.planner.phone")}</a
-          >
-        </div>
-      </div>
-
-      <!-- The Couple -->
-      <div
-        class="bg-white p-8 shadow-lg border border-mist text-center hover:shadow-xl transition-all"
-      >
-        <div class="size-24 rounded-full overflow-hidden mx-auto mb-6">
-          <img
-            src={t("contact.couple.img")}
-            alt={t("contact.couple.name")}
-            loading="lazy"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <h3 class="font-serif text-xl font-semibold text-botanical">
-          {t("contact.couple.name")}
-        </h3>
-        <p class="text-sage text-sm mb-4">{t("contact.couple.role")}</p>
-        <div class="space-y-2">
-          <a
-            href={`mailto:${t("contact.couple.email")}`}
-            class="block text-gray-600 hover:text-botanical transition-colors"
-            >{t("contact.couple.email")}</a
-          >
-          <a
-            href={`tel:${t("contact.couple.phone")}`}
-            class="block text-gray-600 hover:text-botanical transition-colors"
-            >{t("contact.couple.phone")}</a
-          >
-        </div>
-      </div>
+      ))}
     </div>
 
     <!-- Social Media -->

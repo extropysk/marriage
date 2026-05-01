@@ -84,7 +84,7 @@ export const configDefault = {
       date: "Date",
       time: "Time",
       venue: "Venue",
-      duration: "Duration",
+      photo: "Photo",
       entertainment: "Entertainment",
     },
     btnDirections: "Get Directions",
@@ -100,8 +100,8 @@ export const configDefault = {
       venue: "Rose Garden Estate",
       addressLine1: "1234 Bloom Street",
       addressLine2: "Portland, OR 97201",
-      duration: "45 minutes",
-      durationNote: "Outdoor garden ceremony",
+      photo: "45 minutes",
+      photoNote: "Outdoor garden ceremony",
       btnDirections: "https://maps.google.com",
     },
     reception: {
@@ -419,20 +419,22 @@ export const configDefault = {
     heading: "Get In Touch",
     subtitle:
       "Have questions? Need more information? Feel free to reach out to our wedding planner or contact us directly.",
-    planner: {
-      name: "Jennifer Rose Events",
-      role: "Wedding Planner",
-      email: "jennifer@roseevents.com",
-      phone: "(503) 555-0123",
-      img: "/img/planner.jpg",
-    },
-    couple: {
-      name: "Emma & Lucas",
-      role: "The Couple",
-      email: "emmaandlucas2026@email.com",
-      phone: "(503) 555-0123",
-      img: "/img/gallery4.jpg",
-    },
+    cards: [
+      {
+        name: "Jennifer Rose Events",
+        role: "Wedding Planner",
+        email: "jennifer@roseevents.com",
+        phone: "(503) 555-0123",
+        img: "/img/planner.jpg",
+      },
+      {
+        name: "Emma & Lucas",
+        role: "The Couple",
+        email: "emmaandlucas2026@email.com",
+        phone: "(503) 555-0123",
+        img: "/img/gallery4.jpg",
+      },
+    ],
     social: {
       hidden: false,
       text: "Follow our journey on social media",
