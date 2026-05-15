@@ -1,6 +1,8 @@
 export const configDefault = {
   meta: {
     title: "Emma & Lucas - Our Wedding Day",
+    description:
+      "Emma & Lucas - Our Wedding Day. Join us in celebrating our special day filled with love, joy, and unforgettable moments.",
     logoImg: "/img/ring.png",
     logoText: "EL",
     date: "2026-06-15T15:00:00",

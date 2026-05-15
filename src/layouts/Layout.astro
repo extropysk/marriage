@@ -5,13 +5,10 @@ const t = useTranslations();
 
 interface Props {
   title: string;
-  description?: string;
+  description: string;
 }
 
-const {
-  title,
-  description = "Emma & Lucas - Our Wedding Day. Join us in celebrating our special day filled with love, joy, and unforgettable moments.",
-} = Astro.props;
+const { title, description } = Astro.props;
 const animations = t("meta.animations");
 ---
 

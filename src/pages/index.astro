@@ -14,10 +14,12 @@ import Faq from "../components/Faq.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import { useTranslations } from "../utils/i18n";
+
 const t = useTranslations();
+const { title, description } = t("meta");
 ---
 
-<Layout title={t("meta.title")}>
+<Layout title={title} description={description}>
   <Header />
   <main>
     <Hero />
